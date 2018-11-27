@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: './ex/index.js',
+    entry: './ex.1/index.js',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -9,5 +9,15 @@ module.exports = {
     devServer: {
         port: 8080,
         contentBase: './public'
+    },
+    module: {
+        loaders: [{
+            test: /.js?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015'] 
+            }
+        }]
     }
 }
