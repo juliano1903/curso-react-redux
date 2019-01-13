@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin  = require('extract-text-webpack-plugin')
 
 module.exports = {
-    entry: './ex.4/index.js',
+    entry: './ex.2/index.js',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -14,6 +14,12 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('app.css')
     ],
+    resolve: {
+        alias: {
+          myApp: path.resolve(__dirname, 'src'),
+        },
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [{
             test: /.js?$/,
